@@ -12,17 +12,26 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-# change into your name and email.
 
-git init
-git config --global user.name "slukas78"
-git config --global user.email "slukas@zoho.com"
-sudo git config --system core.editor nano
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=25000'
-git config --global push.default simple
+
+########################################
+########        C O N K Y      #########
+########################################
 
 
 echo "################################################################"
-echo "###################    T H E   E N D      ######################"
+echo "Downloading the files from github to tmp directory"
+
+rm -rf /tmp/aureola
+
+git clone https://github.com/erikdubois/Aureola /tmp/aureola
+
+# if there is already a folder in tmp, delete or else do nothing
+[ -d ~/.aureola ] && rm -rf ~/.aureola
+mv -f /tmp/aureola ~/.aureola
+
+rm -rf /tmp/aureola
+
+echo "################################################################"
+echo "###################    aureola installed  ######################"
 echo "################################################################"

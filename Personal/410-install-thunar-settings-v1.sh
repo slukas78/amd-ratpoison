@@ -12,17 +12,12 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-# change into your name and email.
 
-git init
-git config --global user.name "slukas78"
-git config --global user.email "slukas@zoho.com"
-sudo git config --system core.editor nano
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=25000'
-git config --global push.default simple
+echo " installling thunar settings"
 
+[ -d $HOME"/.config/Thunar" ] || mkdir -p $HOME"/.config/Thunar"
+cp -rf settings/Thunar/* ~/.config/Thunar
 
 echo "################################################################"
-echo "###################    T H E   E N D      ######################"
+echo "#########           thunar files copied         ################"
 echo "################################################################"

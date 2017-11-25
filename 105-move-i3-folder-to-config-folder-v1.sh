@@ -12,17 +12,16 @@ set -e
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
-# change into your name and email.
+echo "#################################################"
+echo "Moving the content of the ArchMerge-i3wm folder"
+echo "to the hidden folder ~/.config/i3"
+echo "Then you can reboot already if you wanted to."
+echo "#################################################"
 
-git init
-git config --global user.name "slukas78"
-git config --global user.email "slukas@zoho.com"
-sudo git config --system core.editor nano
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=25000'
-git config --global push.default simple
+echo "Checking if ~/.config/i3 exists"
+echo "If folder does not exist, we will create it now"
 
+[ -d $HOME"/.config/i3" ] || mkdir -p $HOME"/.config/i3"
 
-echo "################################################################"
-echo "###################    T H E   E N D      ######################"
-echo "################################################################"
+echo "moving files and folders to i3 folder"
+cp -rf Archmerge-i3wm/* ~/.config/i3
